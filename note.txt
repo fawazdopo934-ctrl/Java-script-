@@ -1,0 +1,23 @@
+toString
+parseInt()
+parseFloat()
+string.length
+string.indexOf("elm")
+string.replace("elm", 'another')
+
+tabl = [];
+tabl.slice(start,endExcp)
+tabl.slice(startToEnd)
+
+objet::
+var dog = new Object()
+dog.aboi = function(){}
+
+constructeur::
+function Dog(name, color, age)
+{
+    this.name = name,
+    this.color=color
+    this.aboi = function(){}
+}
+var dog1 = new Dog()

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JQuery</title>
+    <script src="jquery.min.js"></script>
+  </head>
+
+  <style>
+    #div1,
+    #div2,
+    #div3,
+    #div4,
+    #div5 {
+      width: 200px;
+      height: 100px;
+    }
+  </style>
+  <body>
+    <p id="p1">Paragraph 1</p>
+    <p class="p2">Paragraph 2</p>
+    <p class="p3">Paragraph 3</p>
+    <p id="p4">Paragraph 4</p>
+
+    <div>
+      <p>Paragraph dans div</p>
+    </div>
+
+    <div id="div1" style="background-color: aqua">Div 1</div>
+    <div id="div2" style="background-color: purple">Div 2</div>
+    <div id="div3" style="background-color: pink">Div 3</div>
+    <div id="div4" style="background-color: blueviolet">Div 4</div>
+    <div id="div5" style="background-color: brown">Div 5</div>
+
+    <!-- code script -->
+    <script>
+      // vérifier si le jquery est loader
+      if (jQuery != undefined) {
+        $(document).ready(function () {
+          //   alert("Hello word");
+          // jquery
+          // la selection id
+          var p1 = $("#p1");
+          //   changer le contenu d'une balise
+          p1.text("Bonjour !");
+          console.log(p1);
+
+          //   selection class
+          var p2 = $(".p2");
+
+          //   selection balise
+          var p = $("p");
+          var p3 = $("p.p3");
+          p3.hide();
+          //
+          var pDiv = $("div p");
+          pDiv.css({ color: "red" });
+        });
+      }
+    </script>
+
+    <!-- event -->
+    <script>
+      var div1 = $("#div1");
+      // event : click, change, submit, hover, scroll ....
+      div1.click(function () {
+        div1.text("Cliqué");
+        // $("#div2").hide();
+        $("#div2").hide(4000);
+      });
+
+      div1.on("click", function () {
+        // traitement
+      });
+      div1.on({
+        mouseenter: function () {
+          $("#div2").css({ "background-color": "red" });
+          $("#div3").hide(4000);
+        },
+        mouseleave: function () {
+          $("#div3").show(4000);
+          $("#div2").css({ "background-color": "blue" });
+        },
+      });
+    </script>
+  </body>
+</html>

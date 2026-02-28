@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bases de javascript</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="cdn.tailwindcss.js"></script>
+  </head>
+  <body>
+    <h2>Les bases de javascript</h2>
+
+    <style>
+      .container {
+        width: 500px;
+        height: 300px;
+        margin: 50px auto;
+        border: 2px solid black;
+        border-radius: 8px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btnD,
+      .btnI,
+      .btnV {
+        border: none;
+        padding: 8px;
+        width: 100px;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+      }
+      .flex {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .btnV {
+        background-color: green;
+      }
+      .btnI {
+        background-color: blue;
+      }
+      .btnD {
+        background-color: gray;
+      }
+    </style>
+
+    <div class="container" id="container">
+      <div>
+        <h3>Compteur</h3>
+        <div class="flex">
+          <button class="btnD" onclick="decrIcrement('-')">-</button>
+          <button class="btnV" id="btnV">0</button>
+          <button class="btnI" onclick="decrIcrement('+')">+</button>
+        </div>
+      </div>
+    </div>
+
+    <button
+      id="btn-visible"
+      class="p-2 bg-blue-800 text-white text-center rounded-4"
+    ></button>
+
+    <!-- code script -->
+    <script>
+      var btnV = document.getElementById("btnV");
+      function increment() {
+        var n = btnV.innerHTML;
+        n++;
+        btnV.innerHTML = n;
+      }
+
+      function decrement() {
+        var n = btnV.innerHTML;
+        if (n > 0) {
+          n--;
+          btnV.innerHTML = n;
+        }
+      }
+
+      function decrIcrement(op) {
+        var n = btnV.innerHTML;
+        if (op == "+") {
+          n++;
+        } else {
+          if (n > 0) {
+            n--;
+          }
+        }
+        btnV.innerHTML = n;
+      }
+
+      // selection
+      var btnVisible = document.getElementById("btn-visible");
+      btnVisible.innerHTML = "Caché";
+      var container = document.getElementById("container");
+      // ajout d'un click event
+      btnVisible.addEventListener("click", function (event) {
+        event.preventDefault();
+        // traitement si l'event s'est déclaché
+        // alert("hello");
+        // vérifier le style
+        if (container.style.display == "none") {
+          container.style.display = "flex";
+          btnVisible.innerHTML = "Caché";
+        } else {
+          container.style.display = "none";
+          btnVisible.innerHTML = "Afficher";
+        }
+      });
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
